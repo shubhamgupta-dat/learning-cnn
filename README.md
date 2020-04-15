@@ -14,10 +14,15 @@ CNN is a class of Deep Learning Neural Networks, most commonly applied to analyz
 
 ## FAQs
 Some important topics that need to be covered:
+1. What is Hadamard Product? Where is it used?
+
+Hadamard product is the element wise product of two matrices. It is used during kernel calculations.
 
 1. What is convolution filter/kernel? 
 2. What is covariate shift?
+
 Covariate shift refers to the change in the distribution of the input variables present in the training and the test data. 
+
 3. How to identify **Covariate Shift**?
     - Preprocessing: This step involves imputing all missing values and label encoding of all categorical variables.
     - Creating a random sample of your training and test data separately and adding a new feature origin which has value train or test depending on whether the observation comes from the training dataset or the test dataset.
@@ -26,13 +31,18 @@ Covariate shift refers to the change in the distribution of the input variables 
     - Now predict on the rest part(~25%) of the dataset and calculate the value of AUC-ROC.
     - Now if the value of AUC-ROC for a particular feature is greater than 0.80, we classify that feature as drifting.
 4. **How to treat Covariate Shift?**
+
 There are two ways to treat Covariate Shift in Data[[2]]:
     - Dropping of drifting features
     - Importance weight using Density Ratio Estimation
 5. **How does Internal Covariate Shift affects CNN?**
+
 During the training stage of networks, as the parameters of the preceding layers change, the distribution of inputs to the current layer changes accordingly, such that the current layer needs to constantly readjust to new distributions. This problem is especially severe for deep networks, because small changes in shallower hidden layers will be amplified as they propagate within the network, resulting in significant shift in deeper hidden layers.[[1]]
+
 6. **How to avoid Internal Covariate Shift in CNNs?**
+
 Introduce Batch Normalization to reduce these unwanted shifts to speed up training and to produce more reliable models.
+
 7. **What is Batch Normalization?**
 
 8. **What are some advantages of Batch Normalization?**
